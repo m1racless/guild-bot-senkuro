@@ -44,7 +44,7 @@ if (token) {
     (ctx) => {
       if (ctx.message && 'text' in ctx.message) {
         ctx.wizard.state.application.profile = ctx.message.text;
-        ctx.reply('2. Как часто вы играете (сколько часов в день/неделю)?');
+        ctx.reply('2. Сколько времени в день вы уделяете данному проекту?');
         return ctx.wizard.next();
       }
       return ctx.reply('Пожалуйста, отправьте текстовое сообщение.');
@@ -52,7 +52,7 @@ if (token) {
     (ctx) => {
       if (ctx.message && 'text' in ctx.message) {
         ctx.wizard.state.application.playtime = ctx.message.text;
-        ctx.reply('3. Почему вы хотите вступить именно в Silentium?');
+        ctx.reply('3. Нам нужны активные игроки. Готовы ли регулярно выполнять задания гильдии, и помогать ей прокачиваться?');
         return ctx.wizard.next();
       }
       return ctx.reply('Пожалуйста, отправьте текстовое сообщение.');
