@@ -163,8 +163,8 @@ if (token) {
     const id = ctx.match[1];
     await ctx.editMessageReplyMarkup({
       inline_keyboard: [
-        [{ text: '📉 Мало времени на игру', callback_data: `rej_onl_${id}` }],
-        [{ text: '⚔️ Слабый профиль', callback_data: `rej_prof_${id}` }],
+        [{ text: '📉 Недостаточный онлайн, слишком мало', callback_data: `rej_onl_${id}` }],
+        [{ text: '⚔️ Подозрительный профиль (подозрение на твинк) ', callback_data: `rej_prof_${id}` }],
         [{ text: '✍️ Своя причина (Ввести вручную)', callback_data: `rej_man_${id}` }],
         [{ text: '🔙 Назад', callback_data: `rej_c_${id}` }]
       ]
@@ -210,11 +210,11 @@ if (token) {
   };
 
   bot.action(/rej_onl_(.+)/, async (ctx) => {
-    await processReject(ctx, ctx.match[1], "Нам нужны более активные игроки (недостаточный онлайн).");
+    await processReject(ctx, ctx.match[1], "Нам нужны более активные пользователи (недостаточный онлайн).");
   });
 
   bot.action(/rej_prof_(.+)/, async (ctx) => {
-    await processReject(ctx, ctx.match[1], "Ваш профиль пока не соответствует минимальным требованиям гильдии.");
+    await processReject(ctx, ctx.match[1], "Ваш профиль выглядит сомнительным. Есть подозрение, что это твинк.");
   });
 
   bot.action(/rej_man_(.+)/, async (ctx) => {
